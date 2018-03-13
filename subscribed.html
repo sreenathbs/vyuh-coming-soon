@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vyuh 7.0 | Aagneya</title>
+</head>
+<style>
+@import 'https://fonts.googleapis.com/css?family=Allerta+Stencil|Roboto+Mono';
+
+html, body {
+  background: #333;  	
+  margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+	background-position: center;
+  font-family: 'Allerta Stencil', sans-serif;
+}
+
+h1 {
+	color: #fff;
+	font-size: 68px;
+	font-size: 5.5vw;
+	width: 100%;
+	display: inline-flex;
+  justify-content: center;
+  letter-spacing: 8px;
+}
+h1 span:nth-child(6) {
+  margin-right: 30px;
+}
+h2 {
+	font-weight: 500;
+	font-size: 27px;
+	font-size: 2vw;
+	margin: 0 auto;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+	display: block;
+}
+
+a {
+	color: #fd3267;
+}
+
+.wrapper {
+  margin-top: 100px;
+	min-height: 500px;
+}
+
+.logo {
+	text-align: center;
+	width: 100%;
+}
+
+ul.countdown {
+	margin-top: 40px;
+	text-align: center;
+	padding: 0;
+	margin-bottom: 0;
+	width: 100%;
+}
+ul.countdown li {
+	display: inline-block;
+	margin-right: 3%;
+	text-align: center;
+}
+ul.countdown li span {
+	font-size: 72px;
+	font-size: 5.8vw;
+	width: 150px;
+	letter-spacing: 5px;
+	font-weight: 300;
+	color: #fff;
+}
+ul.countdown li p {
+	font-size: 14px;
+	margin-bottom: 0;
+}
+ul.countdown li:last-child {
+	margin-right: 0;
+}
+
+.days_ref { color: #2ECC71 }
+.hours_ref { color: #fd3267 }
+.minutes_ref { color: #9B59B6 }
+.seconds_ref { color: #3498DB }
+
+form {
+	text-align: center;
+	width: 100%;
+	margin-top: 60px;
+}
+
+form input[type="text"] {
+	width: 22%;
+	padding: 16px;
+	font-size: 0.85em;
+	color: #fff;
+	outline: none;
+	font-weight: 600;
+	background: none;
+	border: 1px solid#FFFFFF;
+	transition: border-color 0.5s;
+}
+
+form input[type="text"]:focus{
+	background: rgba(255,255,255, 0.3);
+}
+
+form input[type="submit"] {
+	border: 1px solid #FD3267;
+	padding: 16px 16px;
+	font-size: 0.85em;
+	transition: 0.5s all;
+	background: none;
+	color: #FD3267;
+	outline: none;
+	cursor: pointer;
+	margin-left: 15px;
+}
+
+form input[type="submit"]:hover {
+	border: 1px solid #D11250;
+	color: #D11250;
+}
+
+@media screen and (max-width: 500px) {
+	h2 {
+		font-size: 3.5vw
+	}
+}
+</style>
+<body>
+
+<div class="wrapper">
+
+  <h1 class="title">
+    <span style="color: #fd3267">V</span>
+    <span style="color: #A6E22E">Y</span>
+    <span style="color: #9B59B6">u</span>
+    <span style="color: #3498DB">H</span>
+  </h1>
+
+  
+  <h2 class="subtitle">
+    <span>Be</span> 
+    <span>ready,</span>
+    <span>there</span>
+    <span>is just:</span>
+  </h2>
+
+  <ul class="countdown">
+    <li>
+    <span id="days" class="days">00</span>
+      <p class="days_ref">days</p>
+    </li>
+    <li>
+      <span id="hours" class="days">00</span>
+      <p class="hours_ref">hours</p>
+    </li>
+    <li>
+      <span id="mins" class="days">00</span>
+      <p class="minutes_ref">minutes</p>
+    </li>
+    <li>
+      <span id="seconds" class="days">00</span>
+      <p class="seconds_ref">seconds</p>
+    </li>
+  </ul>
+
+  <p> You have subscribed successfully! </p>
+
+</div>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("March 16, 2018 20:00:00").getTime();
+
+// Update the count down every 1 second
+var countdownfunction = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    //document.getElementById("demo1").text = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    document.getElementById('days').innerHTML = days;
+    document.getElementById('hours').innerHTML = hours;
+    document.getElementById('mins').innerHTML = minutes;
+    document.getElementById('seconds').innerHTML = seconds;
+    //console.log(days);
+    
+     //document.getElementById("demo").innerHTML = '01';
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(countdownfunction);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
